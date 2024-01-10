@@ -1,0 +1,18 @@
+.layout-btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: rgba(216, 213, 213, 0.233);
+    transition: ease-in;
+    cursor: pointer;
+}
+
+.layout-btn:hover {
+    -webkit-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.75);
+}
+
+.layout-btn svg:hover {
+    transform: scale(1.2);
+}

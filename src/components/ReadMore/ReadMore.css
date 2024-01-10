@@ -1,0 +1,21 @@
+.desc-container {    
+    
+    /* justify-content: space-evenly; */
+    max-width: 95%;
+}
+ 
+.geeks {
+    color: green;
+}
+ 
+.text {
+    display: inline;
+    font-size: larger;
+    
+    
+}
+ 
+.read-or-hide {
+    color: rgb(192, 192, 192);
+    cursor: pointer;
+}

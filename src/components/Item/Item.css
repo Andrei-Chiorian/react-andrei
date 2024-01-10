@@ -1,0 +1,67 @@
+.item {
+    display: flex;
+    flex-direction: row;   
+    gap: 25px;
+    padding: 0px 15px 20px 15px;   
+    background-color: rgb(248, 248, 248);
+    border-radius: 10px;   
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    transition: all;
+}
+
+.img-container img {
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    transition: all;
+}
+
+.img-container {
+    display: flex;
+    align-items: center;    
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.item-bnt-container {
+    align-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category {
+    margin-bottom: 10px;
+}
+ 
+.price {
+    font-weight: bold;
+    color: blue;
+}
+
+.add-btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    transition: ease-in;
+    animation: forwards;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    -webkit-box-shadow: inset 0px 0px 5px 1px rgba(51,126,255,1);
+    -moz-box-shadow: inset 0px 0px 5px 1px rgba(51,126,255,1);
+    box-shadow: inset 0px 0px 5px 1px rgba(51,126,255,1);
+    }
+
+.add-btn svg:hover {
+    transform: scale(1.2);
+}
+

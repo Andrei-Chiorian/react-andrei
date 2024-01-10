@@ -1,0 +1,124 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 60%;
+}
+
+.cart-item-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    justify-content: flex-start;
+    align-items:center;
+    width: 30%;
+}
+
+.cart-item-container img {
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    transition: all;
+}
+
+.cart-item-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 280px;
+}
+
+.delete-btn {
+    height: 25px;
+    width: 25px;
+    border-radius: 10px;
+    transition: ease-in;
+    animation: forwards;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+.delete-btn:hover {
+    -webkit-box-shadow: inset 0px 0px 2px 1px rgba(255,51,68,1);
+    -moz-box-shadow: inset 0px 0px 2px 1px rgba(255,51,68,1);
+    box-shadow: inset 0px 0px 2px 1px rgba(255,51,68,1);
+}
+
+.delete-btn svg:hover {
+    transform: scale(1.2);
+}
+
+.qty-btn{    
+    display: flex;
+    flex-direction: column;
+    gap: 5px;    
+}
+
+.cart-item-btn div:last-of-type{    
+    font-weight: 500;       
+}
+
+.add-qty-btn {
+    height: 25px;
+    width: 25px;
+    border-radius: 10px;
+    transition: ease-in;
+    animation: forwards;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;    
+}
+
+.add-qty-btn svg {
+    height: 25px;
+    width: 25px;   
+}
+
+.add-qty-btn:hover {
+    -webkit-box-shadow: inset 0px 0px 2px 1px rgba(51,126,255,1);
+    -moz-box-shadow: inset 0px 0px 2px 1px rgba(51,126,255,1);
+    box-shadow: inset 0px 0px 2px 1px rgba(51,126,255,1);
+}
+
+.add-qty-btn svg:hover {
+    transform: scale(1.2);
+}
+
+.remove-qty-btn {
+    height: 25px;
+    width: 25px;
+    border-radius: 10px;
+    transition: ease-in;
+    animation: forwards;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;    
+}
+
+.remove-qty-btn svg {
+    height: 25px;
+    width: 25px;   
+}
+
+.remove-qty-btn:hover {
+    -webkit-box-shadow: inset 0px 0px 2px 1px rgba(255,51,68,1);
+    -moz-box-shadow: inset 0px 0px 2px 1px rgba(255,51,68,1);
+    box-shadow: inset 0px 0px 2px 1px rgba(255,51,68,1);
+}
+
+.remove-qty-btn svg:hover {
+    transform: scale(1.2);
+}
