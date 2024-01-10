@@ -2,7 +2,50 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 60px;
     align-items: center;
+}
+
+.task {
+  width: 250px;
+  height: 250px;
+  border: 2px solid #000;
+  border-radius: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 750;
+  background-image: url('https://miro.medium.com/v2/resize:fit:1050/1*odW0CyTVxMVt5s3yhjjOhw.png');
+  background-repeat: no-repeat;
+  background-size: cover;  
+}
+
+.task-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 80px;
+  background-color: #000;
+  opacity: 0.7;
+  color: rgb(255, 255, 255);
+}
+
+.task-wrapper a:link {
+  color: white;
+  text-decoration: none;
+}
+
+.task-wrapper a:visited {
+  color: white;
+}
+
+.home-content-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 30px; 
 }
 
 .home-img-container {
@@ -13,15 +56,31 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .home-img {
-      animation: App-logo-spin infinite 10s linear;
-    }
+  .task:hover {
+    animation: tilt-shaking infinite 0.3s linear;
+    cursor: pointer;
   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-img {
+    animation: App-logo-spin infinite 10s linear;
+  }
+}
 @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}

@@ -1,6 +1,7 @@
 .nav-container {       
     position:sticky;
     top: 0;
+    z-index: 100;
     background-color: white;   
     padding: 10px 35px;
     display: flex;
@@ -20,7 +21,13 @@
     height: 60px;
 }
 
-.links-container {
+@media (prefers-reduced-motion: no-preference) {
+    .logo-container img:hover {
+      animation: App-logo-spin infinite 1s ease-in-out;
+    }
+}
+
+  .links-container {
     display: flex;
     gap: 20px;
 }

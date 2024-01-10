@@ -10,8 +10,8 @@ export function NavBar() {
             <Link to={BASE_PATH}><img src="logo512.png" alt="logo" /></Link>
         </div>
         <div className='links-container'>
-            <Link className='links' to={USERS_PATH}>Users</Link>
             <Link className='links' to={SHOPPING_CART_PATH}>Shopping Cart</Link>
+            <Link className='links' to={USERS_PATH}>Users</Link>           
         </div>
                 
       </nav>

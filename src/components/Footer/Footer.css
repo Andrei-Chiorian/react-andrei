@@ -21,3 +21,8 @@
     
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    .logo-container-footer img:hover {
+      animation: App-logo-spin infinite 1s ease-in-out;
+    }
+}

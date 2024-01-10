@@ -10,7 +10,7 @@ h1 {
     font-weight: 500;
     color: black;   
     text-decoration: none;
-    transition: .2s;    
+    transition: .1s;    
 }
 
 .links:hover {       
