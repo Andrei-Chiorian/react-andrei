@@ -1,6 +1,8 @@
-.nav-container {    
-    position: sticky;
-    padding: 10px 20px;
+.nav-container {       
+    position:sticky;
+    top: 0;
+    background-color: white;   
+    padding: 10px 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;

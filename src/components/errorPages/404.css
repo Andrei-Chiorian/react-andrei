@@ -1,0 +1,12 @@
+
+.error-404-container {
+    display: flex;
+    justify-content: center;    
+}
+
+.error-404-wrapper {
+    -webkit-box-shadow: -1px 0px 87px 12px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 0px 87px 12px rgba(0,0,0,0.75);
+box-shadow: -1px 0px 87px 12px rgba(0,0,0,0.75);
+
+}
