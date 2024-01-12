@@ -7,9 +7,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    -webkit-box-shadow: 0px 3px 7px 2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 3px 7px 2px rgba(0,0,0,0.75);
-    box-shadow: 0px 3px 7px 2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 3px 7px 2px rgba(95, 218, 252, 0.521);
+    -moz-box-shadow: 0px 3px 7px 2px rgba(95, 218, 252, 0.521);
+    box-shadow: 0px 3px 7px 2px rgba(95, 218, 252, 0.521);
 }
 
 .logo-container{

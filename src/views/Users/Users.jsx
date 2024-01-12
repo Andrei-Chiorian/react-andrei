@@ -88,7 +88,7 @@ function Users() {
                 <input type="text" name="search-bar" className="search-bar" onChange={handleChangeSearch}/>
             </div>            
             <div className='users-container'>                           
-                <div className="user" key={"0"}>
+                <div className="new-user" key={"0"}>
                     <div className='img-container'>
                         <img src = "logo192.png" alt="" />
                     </div>

@@ -5,9 +5,9 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
-    -webkit-box-shadow: 0px -2px 7px 4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -2px 7px 4px rgba(0,0,0,0.75);
-    box-shadow: 0px -2px 7px 4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px -2px 7px 4px rgba(95, 218, 252, 0.521);
+    -moz-box-shadow: 0px -2px 7px 4px rgba(95, 218, 252, 0.521);
+    box-shadow: 0px -2px 7px 4px rgba(95, 218, 252, 0.521);
 }
 
 .logo-container-footer img {
