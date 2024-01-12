@@ -1,7 +1,7 @@
 {
   "name": "curso_fp_react_actividad1",
   "version": "0.1.0",
-  "private": true,
+  "private": true,  
   "dependencies": {
     "@mantine/core": "^7.4.1",
     "@mantine/hooks": "^7.4.1",

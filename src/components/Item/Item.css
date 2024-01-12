@@ -50,7 +50,7 @@
     height: 40px;
     width: 40px;
     border-radius: 10px;
-    transition: ease-in;
+    transition: .2s ;
     animation: forwards;
     cursor: pointer;
 }
@@ -59,9 +59,15 @@
     -webkit-box-shadow: inset 0px 0px 5px 1px rgba(51,126,255,1);
     -moz-box-shadow: inset 0px 0px 5px 1px rgba(51,126,255,1);
     box-shadow: inset 0px 0px 5px 1px rgba(51,126,255,1);
-    }
-
-.add-btn svg:hover {
-    transform: scale(1.2);
 }
+
+.add-btn svg {
+    transition: .2s ;
+}
+
+.add-btn:hover  svg {
+    transform: scale(1.1);
+}
+
+
 

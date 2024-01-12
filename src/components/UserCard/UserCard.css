@@ -1,0 +1,57 @@
+.user {
+    width: 450px;       
+    display: flex;
+    flex-direction: row;    
+    align-items: center;   
+    gap: 25px;
+    position: relative;
+    padding: 15px;       
+    background-color: rgb(248, 248, 248);
+    border-radius: 10px;   
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    transition: .1s;    
+}
+
+.user-info-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.user-email {
+    margin-bottom: 10px;
+}
+
+.user-bnt-container{
+    justify-self: end;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    right: 10px;
+}
+
+.del-btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    transition: .2s ease-in;    
+    cursor: pointer;
+}
+
+.del-btn:hover {
+    -webkit-box-shadow: inset 0px 0px 5px 1px rgb(158, 32, 32);
+    -moz-box-shadow: inset 0px 0px 5px 1px rgba(158, 32, 32);
+    box-shadow: inset 0px 0px 5px 1px rgba(158, 32, 32);
+    }
+
+.del-btn svg {
+    transition: .2s ;
+}
+
+.del-btn:hover  svg {
+    transform: scale(1.1);
+}

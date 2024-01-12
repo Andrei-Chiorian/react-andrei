@@ -5,7 +5,7 @@ import './Footer.css'
 
 export function Footer() {
     return (
-      <nav className='footer-container'>
+      <footer className='footer-container'>
         <div className='logo-container-footer'>
             <Link to={BASE_PATH}><img src="logo512.png" alt="logo" /></Link>
         </div>
@@ -19,6 +19,6 @@ export function Footer() {
             <Link className='links' to={SHOPPING_CART_PATH}>Shopping Cart</Link>     
             <Link className='links' to={USERS_PATH}>Users</Link>            
         </div>        
-      </nav>
+      </footer>
     );
 }

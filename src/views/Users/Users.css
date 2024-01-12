@@ -1,0 +1,75 @@
+.users-container {
+    display: grid;
+    grid-template-columns: auto auto auto; 
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;    
+}
+
+.user-info-container-new {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;    
+}
+
+.user-info-container-new input{
+    border: 1px solid rgb(248, 248, 248);
+    border-radius: 5px;
+    outline: none;
+    background-color: rgb(248, 248, 248);
+}
+.user-info-container-new input:focus{
+    border: 1px solid rgb(189, 189, 189);
+    outline: none;
+}
+
+#username-input {
+    height: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    
+}
+
+#email-input {
+    height: 20px;
+    font-size: 18px;
+}
+
+#password-input {
+    height: 20px;
+    font-size: 18px;
+    
+}
+
+.search-icon svg{
+    width: 25px;
+    height: 25px;    
+}
+
+.search-bar-container {
+    display: flex;
+    gap: 4px;
+    align-items: center;    
+    margin-left: 70px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: white;    
+    width: 350px;
+    padding: 5px;
+}
+
+.search-bar {
+    border: none;
+    outline: none; 
+    height: 30px;
+    font-size: 24px;
+    padding: 2px 2px;
+}
+
+.search-bar:focus {
+    border: none;
+    width: 100%;
+    outline: none;     
+}
+

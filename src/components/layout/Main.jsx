@@ -7,16 +7,14 @@ import './Main.css';
 
 export default function Main() {
   return (
-    <>        
-      <div id="content">
-        <NavBar />
-        <div className='outlet-content'>
-          <CartProvider>
-            <Outlet />
-          </CartProvider>
-        </div>        
-        <Footer />
-      </div>
+    <>    
+      <NavBar />
+      <div className='outlet-content'>
+        <CartProvider>
+          <Outlet />
+        </CartProvider>
+      </div>        
+      <Footer />      
     </>
   );
 }
