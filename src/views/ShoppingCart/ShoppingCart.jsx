@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './ShoppingCart.css';
 import Item from '../../components/Item/Item';
 import LayoutBtn from '../../components/Buttons/LayoutBtn/LayoutBtn';
@@ -7,7 +9,7 @@ import { Filters } from '../../components/Filters/Filters';
 import { useCart } from '../../hooks/useCart';
 
 
-function Home() {
+function ShoppingCart() {
     //Variable para guardar datos del fetch
     const [fetchedItems, setFetchedItems] = useState([]);
 
@@ -40,6 +42,31 @@ function Home() {
         setClicked(!clicked);
     }
 
+    const succesNotify = () => {
+        toast.success('Articulo añadido correctamente', {
+            position: "bottom-left",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",            
+            });
+    };
+
+    const deleteNotify = () => {
+        toast.success('Articulo eliminado correctamente', {
+            position: "bottom-left",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",            
+            });
+    };
    
     // Funcion para el filtrado
     const filterItems = (items) => {
@@ -77,6 +104,18 @@ function Home() {
     }
     return (
         <>
+        <ToastContainer
+            position="bottom-left"
+            autoClose={2500}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"            
+        />
             <h1>ITEMS SHOP</h1>
             <div className='container' style={clicked ? {gap: '60px'} : {gap: '600px'}}>
                 <div className="shop-container">
@@ -88,28 +127,30 @@ function Home() {
                         {
                             filteredItems.map((item) => {
                                 return (
-                                    <Item key={item.id} item={item}/>
+                                    <Item key={item.id} item={item} notify={succesNotify}/>
                                 )
                             })           
                         }
                     </div>
                 </div>
-                <div className='cart-container'>
-                    <h2 className='cart-title'>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                            </svg> 
-                        </span>
-                        <span>Carrito</span>
-                    </h2>
+                <label htmlFor="cart-id" className='cart-button'>
+                    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' strokeWidth='1' stroke='currentColor' fill='none' strokeLinecap='round' strokeLinejoin='round'>
+                        <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+                        <path d='M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0' />
+                        <path d='M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0' />
+                        <path d='M17 17h-11v-14h-2' />
+                        <path d='M6 5l14 1l-1 7h-13' />
+                    </svg>
+                </label>
+                <input id="cart-id" type='checkbox' hidden />
+                <div className='cart-container'>                    
                     <div className='cart-item-container-wrapper'>
                         <div className='cart-item-container'>
                             {
                             areItemsInCart() 
                             ? cart.map((cartItem) => {
                                 return (
-                                    <CartItem key={cartItem.id} cartItem={cartItem}/>
+                                    <CartItem key={cartItem.id} cartItem={cartItem} notify={deleteNotify}/>
                                 )
                             })                              
                             : 'No hay productos en el carrito'                           
@@ -141,4 +182,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default ShoppingCart;

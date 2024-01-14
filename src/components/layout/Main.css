@@ -1,11 +1,19 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .App {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
 }
 
 h1 {
     margin: 0;
+    font-family: 'Tektur', sans-serif;
+    
 }
 .outlet-content {
     flex-grow: 1;

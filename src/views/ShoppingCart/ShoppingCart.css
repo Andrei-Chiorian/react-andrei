@@ -3,6 +3,7 @@
     justify-content: center;
     gap: 40px;
     width: 100%;
+    margin-top: 40px;
 }
 
 @media (max-width: 1800px) {
@@ -25,12 +26,46 @@
     gap: 30px;       
 }
 
-.cart-container {
-    display: flex;
-    flex-direction: column;
+.cart-button {
     align-items: center;
-    gap: 30px;    
-    width: 700px; 
+    background: #09f;
+    border-radius: 9999px;
+    cursor: pointer;
+    display: flex;
+    height: 60px;    
+    justify-content: center;
+    padding: 4px;
+    position: absolute;
+    right: 30px;
+    top: 260px;
+    transition: all .3s ease;
+    width: 60px;
+    z-index:99;
+    box-shadow: 0px 0px 15px 6px rgba(31,122,161,0.36);
+    -webkit-box-shadow: 0px 0px 15px 6px rgba(31,122,161,0.36);
+    -moz-box-shadow: 0px 0px 15px 6px rgba(31,122,161,0.36);
+}
+
+.cart-button svg {    
+    height: 50px;   
+    width: 50px;   
+}
+
+.cart-button:hover {
+    scale: 1.1;
+  }
+  
+  .cart-button ~ input:checked ~ .cart-container {    
+    display: block;
+  }
+
+.cart-container {
+    display: none;
+    position: absolute;    
+    right: 30px;
+    top: 340px;
+    align-items: center;    
+    width: 650px;     
 }
 
 .items-container-row {
@@ -73,14 +108,13 @@ h1 {
     width: 40px;
 }
 
-.cart-item-container-wrapper {
-    padding: 15px;
-    background-color: rgb(211, 211, 211);
+.cart-item-container-wrapper {    
+    padding: 15px;    
+    background-color: #09f;
     border-radius: 10px;   
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    width: 100%;
+    box-shadow: 0px 0px 61px 22px rgba(96,187,219,0.66);
+    -webkit-box-shadow: 0px 0px 61px 22px rgba(96,187,219,0.66);
+    -moz-box-shadow: 0px 0px 61px 22px rgba(96,187,219,0.66);
 }
 
 .cart-item-container {

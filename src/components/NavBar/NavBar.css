@@ -13,7 +13,8 @@
 }
 
 .logo-container{
-    padding: 5px 5px;
+    padding: 5px 5px;    
+    animation: 3s alternate slidein;;    
 }
 
 .logo-container img {
@@ -31,3 +32,20 @@
     display: flex;
     gap: 20px;
 }
+
+@keyframes slidein {
+    0% {
+        margin-left: 0%;
+        transform: rotate(0deg);
+    }
+      
+    50% {
+        margin-left: 15%;
+        transform: rotate(360deg);
+    }    
+
+    100% {
+        margin-left: 0%;
+        transform: rotate(0deg);
+    }
+  }

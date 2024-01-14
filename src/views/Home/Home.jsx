@@ -13,16 +13,16 @@ function Home() {
                 <h2>Aqui puedes consultar todos los ejercicios de React </h2>
             </div>            
             <div className='home-content-container'>
-                <div className="task">
+                <Link to={SHOPPING_CART_PATH} className="task">                    
                     <div className="task-wrapper">
-                        <Link to={SHOPPING_CART_PATH}>Shopping Cart</Link>
+                        Shopping Cart
+                    </div>             
+                </Link>
+                <Link to={USERS_PATH} className="task">                    
+                    <div className="task-wrapper">
+                        Users 
                     </div>                    
-                </div>
-                <div className="task" >
-                <div className="task-wrapper">
-                    <Link to={USERS_PATH}>Users</Link> 
-                </div>  
-                </div>                
+                </Link>                
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ import './Item.css'
 import DescContent from '../ReadMore/ReadMore'
 import {useCart} from "../../hooks/useCart";
 
-function Item({item}) {    
+function Item({item, notify}) {    
     const {addToCart, cart} = useCart();
 
     const checkItemInCart = item => {
@@ -32,6 +32,7 @@ function Item({item}) {
                 </div>                
                 <button className='add-btn' onClick={() => {
                     addToCart(item)
+                    notify()
                 }}
                 >
                     {

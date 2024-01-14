@@ -6,8 +6,10 @@ import { CartProvider } from "../../contexts/Cart";
 import './Main.css';
 
 export default function Main() {
+  
   return (
-    <>    
+    <>
+
       <NavBar />
       <div className='outlet-content'>
         <CartProvider>
