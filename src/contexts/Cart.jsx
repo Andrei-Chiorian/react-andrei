@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { toast } from 'react-toastify';
 
 export const CartContext = createContext();
 
@@ -6,6 +7,18 @@ export const CartContext = createContext();
 export function CartProvider ({children}) {
     const [cart, setCart] = useState([]);
     
+    const deleteNotify = () => {
+        toast.success('Articulo eliminado correctamente', {
+            position: "bottom-left",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",            
+            });
+    };
 
     const addToCart = item => {
 
@@ -34,7 +47,11 @@ export function CartProvider ({children}) {
         newCart[itemInCartIndex].quantity -= 1;
         console.log(cart)
         if(newCart[itemInCartIndex].quantity <= 0){
-            return setCart(prevState => prevState.filter(cartItem => cartItem.id !== item.id))
+            deleteNotify();
+            return setCart(prevState => prevState.filter(cartItem => cartItem.id !== item.id)); 
+                
+            
+            
         }else {
             return setCart(newCart)
         }

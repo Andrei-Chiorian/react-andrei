@@ -2,7 +2,7 @@ import React from 'react'
 import './CartItem.css'
 import {useCart} from "../../hooks/useCart";
 
-function CartItem({ cartItem, deleteNotify}) {
+function CartItem({ cartItem, notify}) {
     const {addToCart, removeOneFromCart, removeAllFromCart} = useCart();
     return (
         <div className='cart-item'>
@@ -25,7 +25,7 @@ function CartItem({ cartItem, deleteNotify}) {
 
                     <button className='delete-btn' onClick={() => {
                             removeAllFromCart(cartItem)
-                            deleteNotify()
+                            notify()
                         }}>                        
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
