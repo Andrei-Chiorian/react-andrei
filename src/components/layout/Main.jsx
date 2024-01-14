@@ -9,7 +9,6 @@ export default function Main() {
   
   return (
     <>
-
       <NavBar />
       <div className='outlet-content'>
         <CartProvider>
