@@ -9,7 +9,7 @@ function UserCard({user, onDelete}) {
     return (
         <div className="user">
             <div className='img-container'>
-                <img src = "logo192.png" alt="" />
+                <img src = "perfil.png" alt="" />
             </div>
             <div className='user-info-container'>
                 <h2>

@@ -17,7 +17,7 @@ export function CartProvider ({children}) {
             draggable: true,
             progress: undefined,
             theme: "light",            
-            });
+        });
     };
 
     const addToCart = item => {
