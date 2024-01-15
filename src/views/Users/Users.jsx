@@ -11,7 +11,9 @@ function Users() {
         username: "",
         mail: "",
         password: ""
-    }) 
+    })
+    
+    const [switchFetch, setSwitchFetch] = useState(true);
 
     const [filter, setFilter] = useState("");
     
@@ -36,14 +38,15 @@ function Users() {
     }    
 
     useEffect(() => {
-        if (users.length === 0) {
+        if (switchFetch) {
             get('/users')
             .then(response => response.json())
             .then(data => {                
                 setUsers(data);                               
-            })                   
+            })
+            setSwitchFetch(false); 
         }
-    },[users]);
+    },[users, switchFetch]);
 
     
 
@@ -52,10 +55,11 @@ function Users() {
     const addUser = (newUser) => {
         if (!newUser) return;
         post('/users', newUser);
-        setUsers([...users, newUser]);        
+        // setUsers([...users, newUser]);        
         usernameRef.current.value = "";
         emailRef.current.value = "";
-        passwordRef.current.value = "";        
+        passwordRef.current.value = "";
+        setSwitchFetch(true);        
     }
 
     const updateUser = (updatedUser) => {
