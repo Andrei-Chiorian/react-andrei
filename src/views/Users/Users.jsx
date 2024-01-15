@@ -1,16 +1,18 @@
 import React, { useState, useEffect, lazy, useRef, useCallback } from "react";
-import { get, post, del } from '../../services/requests'
+import { get, post, del, patch } from '../../services/requests'
 import './Users.css';
 
 const UserLazy = lazy(() => import("../../components/UserCard/UserCard"));
 
 function Users() {
     const [users, setUsers] = useState([]);
+
     const [newUser, setNewUser] = useState({
         username: "",
         mail: "",
         password: ""
-    })
+    }) 
+
     const [filter, setFilter] = useState("");
     
     const usernameRef = useRef(null);
@@ -18,6 +20,7 @@ function Users() {
     const passwordRef = useRef(null);
    
     const filterUsers = (users) => {
+        // eslint-disable-next-line array-callback-return
         return users.filter(user => {            
             if ( user.username.toLocaleLowerCase().startsWith(filter.toLowerCase())) {
                 return (                
@@ -30,7 +33,7 @@ function Users() {
 
     const handleChangeSearch = (event) => {
         setFilter(event.target.value)
-    }
+    }    
 
     useEffect(() => {
         if (users.length === 0) {
@@ -55,6 +58,18 @@ function Users() {
         passwordRef.current.value = "";        
     }
 
+    const updateUser = (updatedUser) => {
+        
+        const currentUser = users.filter(user =>  {                     
+            return updatedUser.id === user.id;
+        })
+
+        if (currentUser[0].username !== updatedUser.username || currentUser[0].mail !== updatedUser.mail) {
+            patch('/users', {...updatedUser});
+            console.log("patch done")
+        }     
+    }
+
     const deleteUser = useCallback((id) => {
         setUsers(users.filter((_user) => _user.id !== id));
         del("/users/", id);        
@@ -74,7 +89,7 @@ function Users() {
         const _user = {...newUser};
         _user.password = password;
         setNewUser({..._user});
-    }
+    }    
 
     return (
         <>
@@ -109,7 +124,7 @@ function Users() {
                 {
                 filteredUsers.map((user) => {
                     return (
-                        <UserLazy key={user.id} user={user} onDelete={deleteUser}/>
+                        <UserLazy key={user.id} user={user} onDelete={deleteUser} onUpdate={updateUser}/>
                     )
                 })
                 }

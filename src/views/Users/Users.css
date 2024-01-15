@@ -15,6 +15,7 @@
 }
 .users-container {
     display: grid;
+    max-width: 100%;
     grid-template-columns: auto auto auto; 
     justify-content: center;
     align-items: center;
@@ -66,13 +67,25 @@
     display: flex;
     gap: 4px;
     align-items: center;    
-    margin-left: 70px;
+    margin-left:180px;
     border: 1px solid gray;
     border-radius: 10px;
     background-color: white;    
     width: 350px;
     padding: 5px;
 }
+
+@media (max-width: 1800px) {
+    .search-bar-container {
+        margin-left: 110px;
+    }
+
+    .users-container {       
+        grid-template-columns: auto auto ;           
+    }
+}   
+
+
 
 .search-bar {
     border: none;

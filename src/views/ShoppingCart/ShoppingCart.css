@@ -10,6 +10,10 @@
     .container {        
         gap: 200px !important;          
     }
+
+    .items-container-grid {       
+        grid-template-columns: auto auto !important;           
+    }
 }
 
 @media (max-width: 1025px) {
