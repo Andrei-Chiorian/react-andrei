@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, useRef, useCallback } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import { get, post, del, patch } from '../../services/requests'
 import './Users.css';
 
@@ -33,6 +34,45 @@ function Users() {
         })        
     }
 
+    const addNotify = () => {
+        toast.success('Nuevo usuario registrado', {
+            position: "bottom-left",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",            
+            });
+    };
+
+    const deleteNotify = () => {
+        toast.success('Usuario eliminado correctamente', {
+            position: "bottom-left",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",            
+            });
+    };
+
+    const updateNotify = () => {
+        toast.success('Usuario modificado correctamente', {
+            position: "bottom-left",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",            
+            });
+    };
+
     const handleChangeSearch = (event) => {
         setFilter(event.target.value)
     }    
@@ -59,7 +99,8 @@ function Users() {
         usernameRef.current.value = "";
         emailRef.current.value = "";
         passwordRef.current.value = "";
-        setSwitchFetch(true);        
+        setSwitchFetch(true);
+        addNotify()        
     }
 
     const updateUser = (updatedUser) => {
@@ -70,13 +111,14 @@ function Users() {
 
         if (currentUser[0].username !== updatedUser.username || currentUser[0].mail !== updatedUser.mail) {
             patch('/users', {...updatedUser});
-            console.log("patch done")
+            updateNotify();            
         }     
     }
 
     const deleteUser = useCallback((id) => {
         setUsers(users.filter((_user) => _user.id !== id));
-        del("/users/", id);        
+        del("/users/", id);
+        deleteNotify();        
     }, [users]);
         
     const handleChangeUsername = (username) => {
@@ -97,6 +139,18 @@ function Users() {
 
     return (
         <>
+            <ToastContainer
+                position="bottom-left"
+                autoClose={2500}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"            
+            />
             <h1>Users</h1>
             <div className="search-bar-container">                
                 <div className="search-icon">

@@ -108,7 +108,7 @@ function ShoppingCart() {
             position="bottom-left"
             autoClose={2500}
             hideProgressBar={false}
-            newestOnTop={false}
+            newestOnTop
             closeOnClick
             rtl={false}
             pauseOnFocusLoss
