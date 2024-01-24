@@ -1,5 +1,8 @@
 .footer-container {
-    padding: 30px;
+    position: absolute;
+    height: 250px;
+    width: 100%;
+    bottom: 0;    
     display: flex;
     flex-direction: column;
     gap: 20px;

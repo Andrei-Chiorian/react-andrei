@@ -13,8 +13,6 @@ function Users() {
         mail: "",
         password: ""
     })
-    
-    const [switchFetch, setSwitchFetch] = useState(true);
 
     const [filter, setFilter] = useState("");
     
@@ -77,16 +75,13 @@ function Users() {
         setFilter(event.target.value)
     }    
 
-    useEffect(() => {
-        if (switchFetch) {
+    useEffect(() => {        
             get('/users')
             .then(response => response.json())
             .then(data => {                
                 setUsers(data);                               
-            })
-            setSwitchFetch(false); 
-        }
-    },[users, switchFetch]);
+            })               
+    },[users]);
 
     
 
@@ -98,17 +93,14 @@ function Users() {
         // setUsers([...users, newUser]);        
         usernameRef.current.value = "";
         emailRef.current.value = "";
-        passwordRef.current.value = "";
-        setSwitchFetch(true);
+        passwordRef.current.value = "";        
         addNotify()        
     }
 
-    const updateUser = (updatedUser) => {
-        
+    const updateUser = (updatedUser) => {        
         const currentUser = users.filter(user =>  {                     
             return updatedUser.id === user.id;
         })
-
         if (currentUser[0].username !== updatedUser.username || currentUser[0].mail !== updatedUser.mail) {
             patch('/users', {...updatedUser});
             updateNotify();            
