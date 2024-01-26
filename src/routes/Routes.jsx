@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import ShoppingCart from "../views/ShoppingCart/ShoppingCart";
 import Users from "../views/Users/Users";
-import { BASE_PATH, USERS_PATH, EVERYTHING_PATH, SHOPPING_CART_PATH } from "../constants/path";
+import { BASE_PATH, USERS_PATH, EVERYTHING_PATH, SHOPPING_CART_PATH, LOGIN_PATH } from "../constants/path";
 import {Error404} from "../components/errorPages/404"
 import Main from '../components/layout/Main'
 import Home from "../views/Home/Home";
+import Login from "../views/Login/Login";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: SHOPPING_CART_PATH,
                 element: <ShoppingCart/>
+            },
+            {
+                path: LOGIN_PATH,
+                element: <Login/>
             },
             {
                 path: EVERYTHING_PATH,

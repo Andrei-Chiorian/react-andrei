@@ -6,8 +6,7 @@ import './Users.css';
 const UserLazy = lazy(() => import("../../components/UserCard/UserCard"));
 
 function Users() {
-    const [users, setUsers] = useState([]);
-
+    const [users, setUsers] = useState([]);    
     const [newUser, setNewUser] = useState({
         username: "",
         mail: "",
@@ -16,6 +15,8 @@ function Users() {
 
     const [filter, setFilter] = useState("");
     
+    const [switchFetch, setSwitchFetch] = useState(true);
+
     const usernameRef = useRef(null);
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
@@ -75,13 +76,18 @@ function Users() {
         setFilter(event.target.value)
     }    
 
-    useEffect(() => {        
+    useEffect(() => {
+        if (switchFetch) {
             get('/users')
             .then(response => response.json())
             .then(data => {                
-                setUsers(data);                               
-            })               
-    },[users]);
+                setUsers(data);
+                console.log(data);                                            
+            })
+            setSwitchFetch(false);                         
+        }        
+                          
+    },[switchFetch]);
 
     
 
@@ -94,7 +100,9 @@ function Users() {
         usernameRef.current.value = "";
         emailRef.current.value = "";
         passwordRef.current.value = "";        
-        addNotify()        
+        addNotify()
+        setSwitchFetch(true);
+        console.log("En addUser " + switchFetch);             
     }
 
     const updateUser = (updatedUser) => {        

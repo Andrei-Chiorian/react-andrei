@@ -1,10 +1,10 @@
-const BASE_URL = 'http://127.0.0.1:5000';
+import {BASE_URL} from '../constants/path';
 
 
 
-export function get(path) {
+export async function get(path) {
     try {
-    return fetch(BASE_URL + path, {
+    return await fetch(BASE_URL + path, {
       method: "GET",
       headers: { "Content-type": "application/json;charset=UTF-8" }
     });
@@ -49,5 +49,19 @@ export function del(path, id) {
   } catch (error) {
     console.log(error);
   }
+  
+}
+
+
+export  function getToken(path, data) {
+  try {
+  return  fetch(BASE_URL + path, {
+    method: "POST",
+    headers: { "Content-type": "application/json;charset=UTF-8" },
+    'body': JSON.stringify(...data)
+  });
+} catch (error) {
+  console.log(error);
+}
   
 }

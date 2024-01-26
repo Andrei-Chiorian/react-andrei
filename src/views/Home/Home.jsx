@@ -1,9 +1,16 @@
+import {connect} from "react-redux";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SHOPPING_CART_PATH, USERS_PATH } from "../../constants/path";
+import {getAccessToken} from "../../redux/selectors/auth.selector";
 import './Home.css'
 
-function Home() {
+function Home(props) {
+
+    const navigate = useNavigate();
+    if (props.accessToken == null) {
+        navigate({BASE_URL'/login'})
+    }
     
     return (
         <div className="home-content">
@@ -28,4 +35,11 @@ function Home() {
     );
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+    accessToken: getAccessToken(state),
+    isLoading: state.authState.isLoading,
+    error: state.authState.error,
+});
+
+
+export default connect(mapStateToProps)(Home);
