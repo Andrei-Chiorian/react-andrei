@@ -9,7 +9,7 @@ function Home(props) {
 
     const navigate = useNavigate();
     if (props.accessToken == null) {
-        navigate({BASE_URL'/login'})
+        // navigate({BASE_URL'/login'})
     }
     
     return (
