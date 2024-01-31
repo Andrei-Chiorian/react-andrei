@@ -10,5 +10,7 @@ export const LOGIN_PATH = "/login";
 
 export const EVERYTHING_PATH = "/*";
 
+export const REGISTER_PATH = "/register"
+
 
 

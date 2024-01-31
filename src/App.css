@@ -1,3 +1,12 @@
-body {
+html, body {
   padding: 0px !important;
+  background-color: rgb(241, 241, 241) !important;
 }
+
+.App {
+  min-height: 100vh;
+  position: relative;
+  background-color: rgb(241, 241, 241);        
+}
+
+

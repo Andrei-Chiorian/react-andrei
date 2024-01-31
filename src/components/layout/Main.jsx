@@ -1,21 +1,23 @@
 import { Outlet } from "react-router-dom";
 import React from 'react';
-import { NavBar } from "../NavBar/NavBar";
+import  NavBar  from "../NavBar/NavBar";
 import { Footer } from "../Footer/Footer";
 import { CartProvider } from "../../contexts/Cart";
 import './Main.css';
+import PrivateRoute from "../PrivateRoute";
 
-export default function Main() {
-  
+function Main() {    
   return (
-    <>
-      <NavBar />
-      <div className='outlet-content'>
-        <CartProvider>
-          <Outlet />
-        </CartProvider>
-      </div>        
-      <Footer />      
-    </>
+    <PrivateRoute>
+        <NavBar />
+        <div className='outlet-content'>        
+          <CartProvider>
+            <Outlet />
+          </CartProvider>      
+        </div>        
+        <Footer />
+    </PrivateRoute>     
   );
 }
+
+export default Main;

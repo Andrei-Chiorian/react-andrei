@@ -2,12 +2,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.App {
-    min-height: 100vh;
-    position: relative;
-    background-color: rgb(241, 241, 241);
-    padding-bottom: 270px;    
-}
+
 
 h1 {
     margin: 0;
@@ -18,7 +13,7 @@ h1 {
     flex-grow: 1;
     background-color: rgb(241, 241, 241);
     padding: 60px 40px;
-     
+    min-height: 100vh !important;     
 }
 .links {
     font-size: 20px;

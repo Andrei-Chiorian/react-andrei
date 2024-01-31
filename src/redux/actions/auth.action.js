@@ -5,7 +5,7 @@ import {
 } from "../../constants/auth.actionTypes";
 
 const authActionRequestStarted = (query) => {
-    console.log(query);
+    // console.log(query);
     return {
         type: AUTH_ACTION_REQUEST_STARTED,
         payload: query
@@ -14,7 +14,7 @@ const authActionRequestStarted = (query) => {
 };
 
 const authActionRequestSuccess = (accessToken) => {
-    console.log(accessToken);
+    // console.log(accessToken);
     return {
         type: AUTH_ACTION_REQUEST_SUCCESS,
         payload: {accessToken}
@@ -22,7 +22,7 @@ const authActionRequestSuccess = (accessToken) => {
 };
 
 const authActionRequestFailed = (error) => {
-    console.log(error);
+    // console.log(error);
     return {
         type: AUTH_ACTION_REQUEST_FAILED,
         payload: {error}

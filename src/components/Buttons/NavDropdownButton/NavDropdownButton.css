@@ -1,0 +1,16 @@
+.userNavButton {    
+    border: 0 !important;
+    padding: 0!important;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    display: flex;
+    box-shadow: none !important;
+    text-transform: none !important;    
+}
+
+
+
+.userNavButton:focus {    
+    border: 0 !important;   
+}
+
