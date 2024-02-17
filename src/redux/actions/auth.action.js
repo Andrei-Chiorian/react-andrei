@@ -1,4 +1,5 @@
 import {
+    AUTH_ACTION_REQUEST_DEFAULT,
     AUTH_ACTION_REQUEST_FAILED,
     AUTH_ACTION_REQUEST_STARTED,
     AUTH_ACTION_REQUEST_SUCCESS
@@ -21,16 +22,23 @@ const authActionRequestSuccess = (accessToken) => {
     }
 };
 
-const authActionRequestFailed = (error) => {
-    // console.log(error);
+const authActionRequestFailed = (error) => {    
     return {
         type: AUTH_ACTION_REQUEST_FAILED,
-        payload: {error}
+        payload: error
+    }
+};
+
+const authActionRequestDefault = (accessToken) => {    
+    return {
+        type: AUTH_ACTION_REQUEST_DEFAULT,
+        payload: accessToken       
     }
 };
 
 export {
     authActionRequestStarted,
     authActionRequestSuccess,
-    authActionRequestFailed
+    authActionRequestFailed,
+    authActionRequestDefault
 }

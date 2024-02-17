@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .input-container {
+      position: relative;
+      width: 300px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      outline: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    input + label {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: #777;
+      pointer-events: none;
+      transition: transform 0.3s, color 0.3s, font-size 0.3s;
+    }
+
+    input::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #2196F3;
+      z-index: 2;
+      transition: width 0.3s; /* Transición para animar la interrupción del borde */
+    }
+
+    input:focus::before,
+    input:not(:placeholder-shown)::before {
+      width: 100%;
+    }
+
+    input:not(:placeholder-shown) + label,
+    input:focus + label {
+      transform: translateY(-25px);
+      font-size: 12px;
+      color: #2196F3;
+    }
+  </style>
+</head>
+<body>
+  <div class="input-container">
+    <input type="text" id="myInput" placeholder=" ">
+    <label for="myInput">Introduce un valor</label>
+  </div>
+</body>
+</html>

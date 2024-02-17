@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {connect} from "react-redux";
-import {authActionRequestFailed, authActionRequestStarted, authActionRequestSuccess} from "../../redux/actions";
+import {authActionRequestStarted} from "../../redux/actions";
+import './login.css'
 import {getAccessToken} from "../../redux/selectors/auth.selector";
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { BASE_URL } from '../../constants/path.js';
-import {
-    MDBBtn,
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBInput
-  }
-  from 'mdb-react-ui-kit';
-import './login.css'
+import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
+import { REGISTER_PATH } from '../../constants/path';
+
+
+
 
 function Login(props) {
 
@@ -23,29 +18,18 @@ function Login(props) {
     }) 
     const navigate = useNavigate();
     
-    const onLogin = (loginUser) => {
-        props.onLoadAuthStarted(loginUser);
-        axios.post(BASE_URL + '/auth/login',
-        loginUser,
-        {
-            headers: { "Content-type": "application/json;charset=UTF-8" }
-        } 
-        )
-        .then((response) =>{                       
-            props.onLoadAuthSuccess(response.data);            
-            localStorage.setItem('accessToken', response.data);                     
-            navigate('/');                     
-        })
-        .catch(error => props.onLoadAuthFailed(error))            
+    const onLogin = () => {        
+        props.onLoadAuthStarted(loginUser)                   
     }
 
-    useEffect(() => {
-        console.log(props.isAuth)        
-        props.isAuth && navigate('/')   
-    },[navigate, props.isAuth])
+    useEffect(() => {              
+        props.isAuth && navigate('/')
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[props.isAuth])
             
     const toRegister = () => {
-        navigate('/register')
+        navigate(REGISTER_PATH)
     }  
 
     const handleChangeUsername = (username) => {
@@ -83,7 +67,7 @@ function Login(props) {
 
 
                         <div className="text-center pt-1 mb-5 pb-1">
-                            <MDBBtn className="mb-4 w-100 gradient-custom-2" onClick={() => onLogin(loginUser)}>Sign in</MDBBtn>
+                            <MDBBtn className="mb-4 w-100 gradient-custom-2" onClick={() => onLogin()}>Iniciar sesión</MDBBtn>
                             <a className="text-muted" href="#!">¿Has olvidado tu contraseña?</a>
                         </div>
 
@@ -125,8 +109,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     onLoadAuthStarted: (loginUser) => dispatch(authActionRequestStarted(loginUser)),
-    onLoadAuthSuccess: (accessToken) => dispatch(authActionRequestSuccess(accessToken)),
-    onLoadAuthFailed: (error) => dispatch(authActionRequestFailed(error)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

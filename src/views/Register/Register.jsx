@@ -10,9 +10,7 @@ import {
     MDBInput
   }
   from 'mdb-react-ui-kit';
-import { BASE_URL } from '../../constants/path';
-import axios from 'axios';
-import { authActionRequestFailed, authActionRequestStarted, authActionRequestSuccess } from '../../redux/actions';
+import { registerActionRequestStarted } from '../../redux/actions';
 import './register.css'
 
 function Register(props) {
@@ -32,20 +30,12 @@ function Register(props) {
     
     
     const onRegister = (registerUser) => {
-        props.onLoadAuthStarted();
-        axios.post(BASE_URL + '/users',
-        registerUser,
-        {
-            headers: { "Content-type": "application/json;charset=UTF-8" }
-        } 
-        )
-        .then((response) =>{                       
-            props.onLoadAuthSuccess(response.data);
-            localStorage.setItem('accessToken', response.data);            
-            navigate('/');                     
-        })
-        .catch(error => console.log(error))            
+        props.onLoadRegisterStarted(registerUser);                
     }
+
+    const toLogin = () => {
+        navigate('/login')
+    } 
 
 
     const handleChangeUsername = (username) => {
@@ -81,6 +71,7 @@ function Register(props) {
                         <img src="logo192.png"
                             style={{width: '185px'}} alt="logo" />
                         <h4 className="mt-1 mb-5 pb-1">React Training</h4>
+                        
                         </div>
 
                         <p>Rellena los siguientes campos</p>
@@ -98,7 +89,7 @@ function Register(props) {
 
                         <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
                             <p className="mb-0">¿Ya tienes cuenta?</p>
-                            <MDBBtn outline className='mx-2' color='danger'>
+                            <MDBBtn outline className='mx-2' color='danger' onClick={() => toLogin()}>
                                 Iniciar sesión
                             </MDBBtn>
                         </div>
@@ -110,8 +101,8 @@ function Register(props) {
                     <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4">
 
                         <div className="text-black px-3 py-4 p-md-5 mx-md-4">
-                        <h4 class="mb-4">A fumar petardos con React y Redux</h4>
-                        <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        <h4 className="mb-4">A fumar petardos con React y Redux</h4>
+                        <p className="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
@@ -133,9 +124,8 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-    onLoadAuthStarted: (loginUser) => dispatch(authActionRequestStarted(loginUser)),
-    onLoadAuthSuccess: (accessToken) => dispatch(authActionRequestSuccess(accessToken)),
-    onLoadAuthFailed: (error) => dispatch(authActionRequestFailed(error)),
+    onLoadRegisterStarted: (registerUser) => dispatch(registerActionRequestStarted(registerUser)),
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

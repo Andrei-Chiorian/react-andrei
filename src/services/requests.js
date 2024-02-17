@@ -1,10 +1,11 @@
-import {BASE_URL} from '../constants/path';
+import axios from 'axios';
+import {API_AUTH_PATH, API_BASE_URL} from '../constants/apiPath';
 
 
 
 export async function get(path) {
     try {
-    return await fetch(BASE_URL + path, {
+    return await fetch(API_BASE_URL + path, {
       method: "GET",
       headers: { "Content-type": "application/json;charset=UTF-8" }
     });
@@ -16,20 +17,21 @@ export async function get(path) {
 
 export  function post(path, data) {
     try {
-    return  fetch(BASE_URL + path, {
-      method: "POST",
-      headers: { "Content-type": "application/json;charset=UTF-8" },
-      'body': JSON.stringify(data)
-    });
+    return axios.post(API_BASE_URL + path, data,
+      {
+          headers: { "Content-type": "application/json;charset=UTF-8" }
+      } 
+    )
+    .then()
   } catch (error) {
-    console.log(error);
+    return error;
   }
     
 }
 
 export  function patch(path, data) {  
   try {
-    return fetch(BASE_URL + path, {
+    return fetch(API_BASE_URL + path, {
       method: "PATCH",
       headers: { "Content-type": "application/json;charset=UTF-8" },
       'body': JSON.stringify(data)
@@ -42,7 +44,7 @@ export  function patch(path, data) {
 
 export function del(path, id) {
   try {
-    return fetch(BASE_URL + path + id, {
+    return fetch(API_BASE_URL + path + id, {
       method: "DELETE",
       headers: { "Content-type": "application/json;charset=UTF-8" }
     });
@@ -52,16 +54,16 @@ export function del(path, id) {
   
 }
 
-
-export  function getToken(path, data) {
-  try {
-  return  fetch(BASE_URL + path, {
-    method: "POST",
-    headers: { "Content-type": "application/json;charset=UTF-8" },
-    'body': JSON.stringify(...data)
-  });
-} catch (error) {
-  console.log(error);
-}
-  
+export  function getToken(data) {
+    try {
+        return axios.post(API_BASE_URL + API_AUTH_PATH, data,
+        {
+          headers: { "Content-type": "application/json;charset=UTF-8" }
+        } 
+        )
+        .then()
+    }
+    catch (error) {
+        return error;
+    }  
 }

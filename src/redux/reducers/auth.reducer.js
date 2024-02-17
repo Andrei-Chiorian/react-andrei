@@ -1,5 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 import {
+    AUTH_ACTION_REQUEST_DEFAULT,
     AUTH_ACTION_REQUEST_FAILED,
     AUTH_ACTION_REQUEST_STARTED,
     AUTH_ACTION_REQUEST_SUCCESS
@@ -16,8 +17,7 @@ const INITIAL_STATE = {
 }
 
 const applyGetAuthStarted = (state, action) => {
-    // console.log(state);
-    // console.log(action);
+     
     return {
         ...state,
         authUser_id: null,
@@ -31,7 +31,10 @@ const applyGetAuthStarted = (state, action) => {
     
 };
 
-const applyGetAuthSuccess = (state, action) => {    
+const applyGetAuthSuccess = (state, action) => {
+    
+    action.payload.accessToken && localStorage.setItem('accessToken', action.payload.accessToken);  
+    
     return {
         ...state,
         accessToken: action.payload.accessToken || localStorage.getItem("accessToken"),
@@ -44,13 +47,29 @@ const applyGetAuthSuccess = (state, action) => {
     }
 }
 
-const applyGetAuthFailed = (state, action) => ({
-    ...state,
-    accessToken: null,
-    isLoading: false,
-    isAuth: false,
-    error: action.payload.error
-});
+const applyGetAuthFailed = (state, action) => {
+    console.log(action.payload)
+    return {
+        ...state,
+        accessToken: null,
+        isLoading: false,
+        isAuth: false,
+        error: action.payload
+    }
+};
+
+const applyGetAuthDefault = (state, action) => {   
+    return {
+        ...state,
+        accessToken: action.payload|| localStorage.getItem("accessToken"),
+        authUser_id: jwtDecode(action.payload).id || jwtDecode(localStorage.getItem("accessToken")).id, 
+        authUser_role: jwtDecode(action.payload).role || jwtDecode(localStorage.getItem("accessToken")).role,    
+        authUser_mail: jwtDecode(action.payload).mail || jwtDecode(localStorage.getItem("accessToken")).mail,
+        authUser_username: jwtDecode(action.payload).sub || jwtDecode(localStorage.getItem("accessToken")).sub,
+        isLoading: false,
+        isAuth: true
+    }
+};
 
 
 function authReducer(state = INITIAL_STATE, action) {
@@ -63,6 +82,9 @@ function authReducer(state = INITIAL_STATE, action) {
         }
         case AUTH_ACTION_REQUEST_FAILED: {
             return applyGetAuthFailed(state, action);
+        }
+        case AUTH_ACTION_REQUEST_DEFAULT: {
+            return applyGetAuthDefault(state, action);
         }
         default: return state;
     }
